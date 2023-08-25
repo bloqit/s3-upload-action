@@ -35,7 +35,7 @@ Currently, only single file upload is supported.
 ### Basic usage
 
 ```yaml
-- uses: hkusu/s3-upload-action@v2
+- uses: bloqit/s3-upload-action@v2
   with:
     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -52,7 +52,7 @@ Specify `destination-dir` input or `bucket-root` input to change the destination
 Use `file-url` output.
 
 ```yaml
-- uses: hkusu/s3-upload-action@v2
+- uses: bloqit/s3-upload-action@v2
   id: upload # specify some ID for use in subsequent steps
   with:
     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -73,7 +73,7 @@ For Android apk file, you can install it on your device by specifying `applicati
 Use `qr-url` output.
 
 ```yaml
-- uses: hkusu/s3-upload-action@v2
+- uses: bloqit/s3-upload-action@v2
   id: upload # specify some ID for use in subsequent steps
   with:
     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
