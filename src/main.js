@@ -28,6 +28,7 @@ if (NODE_ENV != 'local') {
     qrWidth: core.getInput('qr-width'),
     public: core.getInput('public'),
     expire: core.getInput('expire'),
+    version: core.getInput('version') || null,
   };
 } else {
   input = {
@@ -44,6 +45,7 @@ if (NODE_ENV != 'local') {
     qrWidth: '120',
     public: 'false',
     expire: '180',
+    version: null,
   };
 }
 
@@ -112,6 +114,12 @@ async function run(input) {
     ChecksumCRC32: checksum,
     ChecksumAlgorithm: 'CRC32',
   };
+
+  if (input.version)
+  { 
+    params["Metadata"] = { "version" : input.version};
+  }
+
   await s3.putObject(params).promise();
 
   let fileUrl;
