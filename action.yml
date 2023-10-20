@@ -50,6 +50,10 @@ inputs:
     description: ''
     default: '86400'
     required: false
+  version:
+    description: ''
+    default: ''
+    required: false
 outputs:
   result:
     description: '`success` or `failure` is set.'
