@@ -29,6 +29,7 @@ if (NODE_ENV != 'local') {
     public: core.getInput('public'),
     expire: core.getInput('expire'),
     version: core.getInput('version') || null,
+    lastCommitSha: core.getInput('last-commit-sha') || null,
   };
 } else {
   input = {
@@ -46,6 +47,7 @@ if (NODE_ENV != 'local') {
     public: 'false',
     expire: '180',
     version: null,
+    lastCommitSha: null,
   };
 }
 
@@ -115,9 +117,21 @@ async function run(input) {
     ChecksumAlgorithm: 'CRC32',
   };
 
+  let metadata = {}
+
   if (input.version)
   { 
-    params["Metadata"] = { "version" : input.version};
+    metadata["version"] = input.version;
+  }
+
+  if (input.lastCommitSha)
+  { 
+    metadata["lastcommitsha"] = input.lastCommitSha;
+  }
+
+  if (input.version || input.lastCommitSha)
+  { 
+    params["Metadata"] = metadata;
   }
 
   await s3.putObject(params).promise();

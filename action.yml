@@ -54,6 +54,10 @@ inputs:
     description: ''
     default: ''
     required: false
+  last-commit-sha:
+    description: ''
+    default: ''
+    required: false
 outputs:
   result:
     description: '`success` or `failure` is set.'
