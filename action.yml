@@ -23,48 +23,13 @@ inputs:
   destination-dir:
     description: ''
     required: false
-  bucket-root:
-    description: ''
-    default: ''
-    required: false
-  output-file-url:
-    description: ''
-    default: 'false'
-    required: false
-  content-type:
-    description: ''
-    required: false
-  output-qr-url:
-    description: ''
-    default: 'false'
-    required: false
-  qr-width:
-    description: ''
-    default: '120'
-    required: false
-  public:
-    description: ''
-    default: 'false'
-    required: false
-  expire:
-    description: ''
-    default: '86400'
-    required: false
-  version:
-    description: ''
-    default: ''
-    required: false
-  last-commit-sha:
+  metadata:
     description: ''
     default: ''
     required: false
 outputs:
   result:
     description: '`success` or `failure` is set.'
-  file-url:
-    description: ''
-  qr-url:
-    description: ''
 runs:
   using: 'node20'
   main: 'dist/index.js'
