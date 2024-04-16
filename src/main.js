@@ -56,7 +56,7 @@ async function run(input) {
     ACL: 'private',
     ChecksumCRC32: checksum,
     ChecksumAlgorithm: 'CRC32',
-    Metadata: JSON.parse(input.metadata)
+    Metadata: input.metadata ? JSON.parse(input.metadata) : undefined
   };
 
   await s3.putObject(params).promise();
