@@ -44,7 +44,8 @@ const s3 = new aws.S3({ signatureVersion: 'v4' });
 
 async function run(input) {
 
-  const fileKey = input.destinationDir + '/' + path.basename(input.filePath);
+  const destinationDir = input.destinationDir ? input.destinationDir + '/' : '';
+  const fileKey = destinationDir + path.basename(input.filePath);
   const file = fs.readFileSync(input.filePath);
   const checksum = crc32(file).toString('base64');
 
