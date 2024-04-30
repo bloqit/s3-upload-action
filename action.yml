@@ -27,6 +27,10 @@ inputs:
     description: ''
     default: ''
     required: false
+  content-type:
+    description: ''
+    default: ''
+    required: false
 outputs:
   result:
     description: '`success` or `failure` is set.'

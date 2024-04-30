@@ -14,6 +14,7 @@ Currently, only single file upload is supported.
 | `aws-bucket` | (Required) S3 bucket to upload files. | 
 | `destination-dir` | Directory on the bucket to upload files | 
 | `metadata` | metadata in json format | 
+| `content-type` | standard MIME type that describes the format the file | 
 
 ## Outputs
 
@@ -40,6 +41,7 @@ Currently, only single file upload is supported.
         "key2": "value2",
         "key3": "value3"
       }
+    content-type: 'text/html'
 ```
 
 In this example, `myfile.txt` is stored in `folder/myfile.txt` on the bucket.

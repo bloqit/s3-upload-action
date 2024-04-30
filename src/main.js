@@ -20,7 +20,8 @@ if (NODE_ENV != 'local') {
     awsBucket: core.getInput('aws-bucket', { required: true }),
     destinationDir: core.getInput('destination-dir'),
     filePath: core.getInput('file-path', { required: true }),
-    metadata: core.getInput('metadata')
+    metadata: core.getInput('metadata'),
+    contentType: core.getInput('content-type')
   };
 } else {
   input = {
@@ -30,7 +31,8 @@ if (NODE_ENV != 'local') {
     awsBucket: AWS_BUCKET,
     destinationDir: '',
     filePath: './README.md',
-    metadata: ''
+    metadata: '',
+    contentType: ''
   };
 }
 
@@ -56,7 +58,8 @@ async function run(input) {
     ACL: 'private',
     ChecksumCRC32: checksum,
     ChecksumAlgorithm: 'CRC32',
-    Metadata: input.metadata ? JSON.parse(input.metadata) : undefined
+    Metadata: input.metadata ? JSON.parse(input.metadata) : undefined,
+    ContentType: input.contentType ? input.contentType : undefined
   };
 
   await s3.putObject(params).promise();
