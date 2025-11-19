@@ -5,10 +5,7 @@ branding:
   icon: 'upload-cloud'
   color: 'white'
 inputs:
-  aws-access-key-id:
-    description: ''
-    required: true
-  aws-secret-access-key:
+  role_to_assume:
     description: ''
     required: true
   aws-region:
